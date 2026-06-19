@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /home/user/fillariretki 2>/dev/null || exit 0; git push -q origin HEAD 2>/dev/null; git push -q origin HEAD:main 2>/dev/null; exit 0",
+            "timeout": 60,
+            "statusMessage": "Merging to main & publishing to GitHub Pages…"
+          }
+        ]
+      }
+    ]
+  }
+}

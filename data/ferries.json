@@ -1,0 +1,264 @@
+[
+  {
+    "id": "adan",
+    "name": "M/S Ådan",
+    "type": "yhdysalus",
+    "leg": "Vuosnainen (Osnäs) – Åva",
+    "operator": "Ålandstrafiken",
+    "booking_required": true,
+    "booking_note": "Varaus pakollinen (ennakkovaraus)",
+    "booking_url": "https://www.alandstrafiken.ax",
+    "phone": "+358 18 25 600",
+    "timetable_url": "https://www.alandstrafiken.ax/sites/default/files/2026-06/osnas-ava-22.6.2026.pdf",
+    "price_note": "Vuosnainen→Åva maksullinen; Åva→Vuosnainen maksuton",
+    "crossing_min": 50,
+    "schedules": [
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Maanantai",
+        "direction": "Vuosnainen→Åva",
+        "departures": ["10:05", "13:40", "16:35", "18:40"],
+        "note": "10:05 on polttoaineenkuljetusvuoro, enint. 20 matkustajaa."
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Tiistai–torstai",
+        "direction": "Vuosnainen→Åva",
+        "departures": ["06:30", "10:35", "13:35", "16:35", "19:40"]
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Perjantai",
+        "direction": "Vuosnainen→Åva",
+        "departures": ["06:30", "10:35", "13:35", "16:35", "19:40"],
+        "note": "Joinakin heinäkuun perjantaina lisäksi 09:15 vain polttoaineen kuljetukseen."
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Lauantai",
+        "direction": "Vuosnainen→Åva",
+        "departures": ["06:30", "10:35", "13:35", "16:35", "19:40"]
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Sunnuntai",
+        "direction": "Vuosnainen→Åva",
+        "departures": ["10:35", "12:45", "16:05", "19:00", "22:05"]
+      }
+    ],
+    "info": "Norra linjenin yhdysalus Vuosnaisista (Osnäs, Kustavi) Åvaan (Brändö). Varaus pakollinen etukäteen. Osa vuoroista yhdistyy Torsholmassa M/S Alfågelnin tai M/S Knipanin jatkoyhteyksiin. Matka Åva–Torsholma maantietä n. 22 km. Juhannusaattona pe 19.6. ja juhannuspäivänä la 20.6. oli erikoisaikataulut; normaali kesäaikataulu alkaa seuraavalla viikolla.",
+    "source": "Ålandstrafiken, Norra linjen kesäaikataulu 6/6–18/8 2026 (Osnäs–Åva PDF, päiv. 22.6.2026), https://www.alandstrafiken.ax/turlistor — haettu 19.6.2026"
+  },
+  {
+    "id": "finno",
+    "name": "m/s Rosala 2 (m/s Finnö)",
+    "type": "yhdysalus",
+    "leg": "Torsholma – Roslax (Houtskär)",
+    "operator": "Finferries",
+    "booking_required": true,
+    "booking_note": "Varaus pakollinen – tilausvuoro, varattava viim. edellisenä päivänä klo 17:00 (su-vuoro la klo 14:00)",
+    "booking_url": "https://booking.finferries.fi",
+    "phone": "020 7118 793",
+    "timetable_url": "https://www.finferries.fi/media/aikataulut-2026/houtskarin-reitti-kesa-6.6.-18.8.2026.pdf",
+    "price_note": "Yhteysalusmatka, hinta varausjärjestelmässä",
+    "crossing_min": 150,
+    "schedules": [
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Maanantai",
+        "direction": "Torsholma→Roslax",
+        "departures": ["15:15"],
+        "note": "Torsholma 14:50/15:15 → Roslax 17:40. Tilausvuoro (y)."
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Keskiviikko, torstai",
+        "direction": "Torsholma→Roslax",
+        "departures": ["15:15"],
+        "note": "Torsholma 14:50/15:15 → Roslax 17:10. Tilausvuoro (y)."
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Perjantai",
+        "direction": "Torsholma→Roslax",
+        "departures": ["15:15", "21:10"],
+        "note": "Torsholma 14:50/15:15 → Roslax 17:10; myöhäisvuoro Torsholma 20:40/21:10 → Roslax n. 23:30. Tilausvuoro (y)."
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Sunnuntai, pyhät",
+        "direction": "Torsholma→Roslax",
+        "departures": ["14:20", "20:20"],
+        "note": "Torsholma 13:55/14:20 → Roslax 16:35; myöhäisvuoro Torsholma 20:05/20:20 → Roslax n. 22:30. Tilausvuoro (y)."
+      },
+      {
+        "valid": "6.6.–18.8.2026",
+        "days": "Keskiviikko, torstai, perjantai",
+        "direction": "Roslax→Torsholma (Näsbyn laituri)",
+        "departures": ["12:20"],
+        "note": "Näsby 12:20 → Roslax 12:35 → … → Torsholma n. 14:50/15:15. (Houtskari→Brändö suunta.)"
+      }
+    ],
+    "info": "Houtskarin reitin yhteysalus (kesällä 2026 m/s Rosala 2, kapasiteetti suurempi kuin reitin vakioalus m/s Finnö; max 98 matkustajaa, max 6 henkilöautoa, 25 t). Tämä on reissun pullonkaula: liikennöi rajoitetusti ja kaikki vuorot ovat tilausvuoroja (y), jotka on varattava etukäteen varausjärjestelmästä. Torsholma→Roslax-suunta kulkee ma, ke, to, pe ja su (ei ti, ei la); pääsääntöinen lähtö Torsholmasta n. klo 15:15 (su 14:20). Näsbyn laituria käytetään ke/to/pe klo 12:20 (alus käy Roslaxissa tarvittaessa). Matka Roslax–Torsholma kestää n. 2–3 h välipysähdyksistä riippuen. Huom: ajalla 16.6.–3.7.2026 alus käyttää Lilla Hummelholmin laituria Torsholman laiturin sijaan. Pyhäliikenne: to 18.6. perjantain aikataulu, pe 19.6. ja la 20.6. ei liikennettä, su 21.6. sunnuntain aikataulu.",
+    "source": "Finferries, Houtskarin reitti kesäaikataulu 6.6.–18.8.2026 (m/s Rosala 2, PDF päiv. 15.6.2026), https://www.finferries.fi/lauttaliikenne/lauttapaikat-ja-aikataulut/houtskarin-reitti-finno.html — haettu 19.6.2026"
+  },
+  {
+    "id": "replot",
+    "name": "m/s Replot",
+    "type": "yhdysalus",
+    "leg": "Mossala (Houtskär) – Dalen (Iniö)",
+    "operator": "Finferries",
+    "booking_required": true,
+    "booking_note": "Varaus suositeltava/pakollinen varausjärjestelmässä",
+    "booking_url": "https://booking.finferries.fi",
+    "phone": "040 589 1841",
+    "timetable_url": "https://www.finferries.fi/media/aikataulut-2026/saariston-rengastie-houtskari-inio-8.5.-13.9.2026.pdf",
+    "price_note": "Polkupyörä 12 €, aikuinen 10 €, lapsi (0–11 v) 5 €, henkilöauto (sis. matkustajat) 45 €",
+    "crossing_min": 60,
+    "schedules": [
+      {
+        "valid": "8.5.–13.9.2026",
+        "days": "Maanantai–lauantai",
+        "direction": "Mossala→Dalen",
+        "departures": ["09:15", "12:15", "14:15", "16:15", "18:45"],
+        "note": "18:45 vain heinäkuussa."
+      },
+      {
+        "valid": "8.5.–13.9.2026",
+        "days": "Sunnuntai",
+        "direction": "Mossala→Dalen",
+        "departures": ["09:15", "11:45", "14:15", "16:15", "18:45"],
+        "note": "18:45 vain heinäkuussa."
+      }
+    ],
+    "info": "Saariston rengastien yhteysalus Mossalasta (Houtskär) Daleniin (Iniö). Lauttamatkan kesto noin tunti. Matka suositellaan varattavaksi varausjärjestelmästä booking.finferries.fi paikan varmistamiseksi; maksu varausjärjestelmässä tai lautalle ajettaessa (MobilePay). Juhannuspäivänä (20.6.) on voimassa sunnuntain aikataulu.",
+    "source": "Finferries, Saariston rengastie Houtskari–Iniö 8.5.–13.9.2026 (PDF päiv. 6.5.2026), https://www.finferries.fi/media/aikataulut-2026/saariston-rengastie-houtskari-inio-8.5.-13.9.2026.pdf — haettu 19.6.2026"
+  },
+  {
+    "id": "sterna",
+    "name": "M/S Sterna",
+    "type": "maantielautta",
+    "leg": "Kannvik (Iniö) – Heponiemi (Kustavi)",
+    "operator": "Finferries",
+    "booking_required": false,
+    "booking_note": "Ei varausta – jonotusperiaate",
+    "booking_url": null,
+    "phone": "020 7118 706",
+    "timetable_url": "https://www.finferries.fi/media/aikataulut-2026/inio-kustavi-kesa-8.5.-13.9.2026.pdf",
+    "price_note": "Maksuton",
+    "crossing_min": 30,
+    "schedules": [
+      {
+        "valid": "22.6.–13.9.2026",
+        "days": "Maanantai–perjantai",
+        "direction": "Kannvik (Iniö)→Heponiemi (Kustavi)",
+        "departures": ["06:30", "07:30", "09:30", "11:00", "14:45", "15:55", "18:00", "20:30"],
+        "note": "09:30 (ti ja to) varattu vaarallisten aineiden kuljetukseen, matkustajamäärä rajoitettu."
+      },
+      {
+        "valid": "8.5.–13.9.2026",
+        "days": "Lauantai",
+        "direction": "Kannvik (Iniö)→Heponiemi (Kustavi)",
+        "departures": ["07:30", "09:30", "11:00", "14:45", "15:55", "18:00"]
+      },
+      {
+        "valid": "17.5.–13.9.2026",
+        "days": "Sunnuntai, pyhät",
+        "direction": "Kannvik (Iniö)→Heponiemi (Kustavi)",
+        "departures": ["11:00", "13:30", "14:45", "15:55", "17:10", "19:15"]
+      }
+    ],
+    "info": "Iniön reitin maksuton maantielautta Kannvikista (Iniö) Heponiemeen (Kustavi). Ei varausta, jonotusperiaate. Liikennöi tiheästi aikataulun mukaan: arkisin n. 8 vuoroa, ensimmäinen Kannvikista 06:30 ja viimeinen 20:30. Ylitys n. 30 min (reitin pituus 5700 m). Tiistain ja torstain klo 09:30 -vuoro on varattu vaarallisten aineiden kuljetukseen ja matkustajamäärä on rajoitettu. Lautalla on kahvila Cafe Puksprööti.",
+    "source": "Finferries, Iniö–Kustavi kesäaikataulu (ma–pe 22.6.–13.9.2026, la 8.5.–13.9.2026, su 17.5.–13.9.2026), https://www.finferries.fi/lauttaliikenne/lauttapaikat-ja-aikataulut/inio-kustavi.html — haettu 19.6.2026"
+  },
+  {
+    "id": "vartsala",
+    "name": "Vartsalan lossi",
+    "type": "lossi",
+    "leg": "Kivimaa – Vartsala (Kustavi)",
+    "operator": "Finferries",
+    "booking_required": false,
+    "booking_note": "Ei varausta",
+    "booking_url": null,
+    "phone": null,
+    "timetable_url": "https://www.finferries.fi/en/ferry-traffic/ferries-and-schedules.html",
+    "price_note": "Maksuton",
+    "crossing_min": null,
+    "schedules": [],
+    "info": "Pieni lossi, liikennöi jatkuvasti tarpeen mukaan.",
+    "source": "Finferries / brando.ax Tour de Skiftet"
+  },
+  {
+    "id": "skagen",
+    "name": "Skagenin lossi",
+    "type": "lossi",
+    "leg": "Jumo – Skagen (Iniö)",
+    "operator": "Finferries",
+    "booking_required": false,
+    "booking_note": "Ei varausta",
+    "booking_url": null,
+    "phone": null,
+    "timetable_url": "https://www.finferries.fi/en/ferry-traffic/ferries-and-schedules.html",
+    "price_note": "Maksuton",
+    "crossing_min": null,
+    "schedules": [
+      {
+        "valid": "Kesä 2026",
+        "days": "Arkisin (ma–pe)",
+        "direction": "Jumo↔Skagen",
+        "departures": [],
+        "note": "Liikennöintiaika n. klo 6–23, tarpeen mukaan."
+      },
+      {
+        "valid": "Kesä 2026",
+        "days": "Lauantai",
+        "direction": "Jumo↔Skagen",
+        "departures": [],
+        "note": "Liikennöintiaika n. klo 7–23, tarpeen mukaan."
+      },
+      {
+        "valid": "Kesä 2026",
+        "days": "Sunnuntai",
+        "direction": "Jumo↔Skagen",
+        "departures": [],
+        "note": "Liikennöintiaika n. klo 8:30–22, tarpeen mukaan."
+      }
+    ],
+    "info": "Pieni maksuton lossi Jumon ja Skagenin välillä (Iniö). Ei varausta. Liikennöi tarpeen mukaan suunnilleen arkisin klo 6–23, lauantaisin klo 7–23 ja sunnuntaisin klo 8:30–22.",
+    "source": "Finferries / brando.ax Tour de Skiftet"
+  },
+  {
+    "id": "mossala_bjorko",
+    "name": "Mossala–Björkö lossi",
+    "type": "lossi",
+    "leg": "Mossala – Björkö (Houtskär)",
+    "operator": "Finferries",
+    "booking_required": false,
+    "booking_note": "Ei varausta",
+    "booking_url": null,
+    "phone": null,
+    "timetable_url": "https://www.finferries.fi/en/ferry-traffic/ferries-and-schedules.html",
+    "price_note": "Maksuton",
+    "crossing_min": null,
+    "schedules": [],
+    "info": "Pieni maksuton lossi Mossalan ja Björkön välillä (Houtskär). Ei varausta, liikennöi aikataulun mukaan / tarpeen mukaan.",
+    "source": "Finferries / brando.ax Tour de Skiftet"
+  },
+  {
+    "id": "kivimo_roslax",
+    "name": "Kivimo–Roslax lossi",
+    "type": "lossi",
+    "leg": "Kivimo – Roslax (Houtskär)",
+    "operator": "Finferries",
+    "booking_required": false,
+    "booking_note": "Ei varausta",
+    "booking_url": null,
+    "phone": null,
+    "timetable_url": "https://www.finferries.fi/en/ferry-traffic/ferries-and-schedules.html",
+    "price_note": "Maksuton",
+    "crossing_min": null,
+    "schedules": [],
+    "info": "Pieni maksuton lossi Kivimon ja Roslaxin välillä (Houtskär). Ei varausta, liikennöi aikataulun mukaan / tarpeen mukaan.",
+    "source": "Finferries / brando.ax Tour de Skiftet"
+  }
+]

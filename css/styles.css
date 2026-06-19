@@ -1,0 +1,197 @@
+:root{
+  --bg:#f4f6f8; --surface:#ffffff; --ink:#15242b; --muted:#5d717c;
+  --line:#e2e8ec; --brand:#0b6e8f; --brand-d:#075063; --accent:#e8852b;
+  --cycle:#0b6e8f; --ferry:#e8852b; --good:#2e9e5b; --warn:#c4452f;
+  --shadow:0 2px 10px rgba(20,40,50,.10); --shadow-lg:0 6px 28px rgba(20,40,50,.22);
+  --tab-h:58px; --radius:14px;
+  --safe-b:env(safe-area-inset-bottom,0px); --safe-t:env(safe-area-inset-top,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0e1418; --surface:#172127; --ink:#e7eef2; --muted:#9fb1bb;
+    --line:#26343c; --brand:#3fb4d6; --brand-d:#2a93b3; --shadow:0 2px 10px rgba(0,0,0,.4);
+    --shadow-lg:0 6px 28px rgba(0,0,0,.55); }
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important} /* ensure the hidden attribute always wins over flex/grid */
+html,body{margin:0;height:100%}
+body{
+  font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--ink); background:var(--bg);
+  -webkit-text-size-adjust:100%; overscroll-behavior-y:none;
+}
+h1{font-size:1.25rem;margin:.1em 0}
+.muted{color:var(--muted)} .small{font-size:.82rem}
+a{color:var(--brand)}
+button{font:inherit;cursor:pointer}
+
+/* ---------- Views ---------- */
+.view{display:none; position:absolute; inset:0 0 var(--tab-h) 0;}
+.view.is-active{display:block}
+.view--scroll{overflow-y:auto; -webkit-overflow-scrolling:touch;
+  padding:calc(var(--safe-t) + 8px) 14px calc(24px) 14px;}
+.view--map{inset:0 0 var(--tab-h) 0}
+.vh{margin:.2rem 0 .6rem}
+.vh__sub{margin:.15rem 0 0;color:var(--muted);font-size:.9rem}
+
+/* ---------- Map ---------- */
+.map{position:absolute; inset:0}
+.leaflet-container{background:#aadaff;font:inherit}
+.map-toolbar{position:absolute; top:calc(var(--safe-t) + 10px); right:10px; z-index:600;
+  display:flex; flex-direction:column; gap:8px}
+.map-btn{width:44px;height:44px;border-radius:12px;border:none;background:var(--surface);
+  color:var(--ink); box-shadow:var(--shadow); font-size:20px; line-height:1;
+  display:flex;align-items:center;justify-content:center}
+.map-btn.is-on{background:var(--brand); color:#fff}
+
+/* radar controls */
+.radar-controls{position:absolute; left:10px; right:64px; top:calc(var(--safe-t) + 10px);
+  z-index:600; background:var(--surface); box-shadow:var(--shadow); border-radius:12px;
+  padding:8px 10px; display:flex; align-items:center; gap:10px}
+.radar-play{border:none;background:var(--brand);color:#fff;width:34px;height:34px;border-radius:9px;font-size:15px}
+.radar-slider{flex:1;accent-color:var(--brand)}
+.radar-time{font-variant-numeric:tabular-nums;font-size:.82rem;color:var(--muted);min-width:84px;text-align:right}
+
+/* radar legend */
+.radar-legend{background:rgba(255,255,255,.92);color:#15242b;padding:6px 8px;border-radius:8px;
+  font-size:.72rem;line-height:1.3;box-shadow:var(--shadow)}
+.radar-legend b{display:block;margin-bottom:3px}
+.radar-legend .scale{display:flex;height:9px;border-radius:3px;overflow:hidden;margin:3px 0}
+.radar-legend .scale i{flex:1}
+
+/* ---------- Bottom sheet (route summary) ---------- */
+.route-sheet{position:absolute; left:0; right:0; bottom:0; z-index:650;
+  background:var(--surface); border-radius:18px 18px 0 0; box-shadow:var(--shadow-lg);
+  max-height:62%; display:flex; flex-direction:column;
+  transform:translateY(calc(100% - 56px)); transition:transform .28s ease}
+.route-sheet.is-open{transform:translateY(0)}
+.route-sheet__handle{width:100%;border:none;background:none;color:var(--ink);
+  display:flex;align-items:center;justify-content:space-between;padding:14px 18px 12px;
+  font-weight:600}
+.route-sheet__handle::before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);
+  width:38px;height:4px;border-radius:3px;background:var(--line)}
+.route-sheet__title{font-size:.98rem}
+.route-sheet__chev{transition:transform .28s;color:var(--muted)}
+.route-sheet.is-open .route-sheet__chev{transform:rotate(180deg)}
+.route-sheet__body{overflow-y:auto;padding:0 14px calc(16px + var(--safe-b))}
+
+/* itinerary steps */
+.step{display:flex;gap:12px;padding:10px 4px;border-top:1px solid var(--line)}
+.step:first-child{border-top:none}
+.step__rail{display:flex;flex-direction:column;align-items:center;width:30px;flex:none}
+.step__dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:#fff;background:var(--brand);box-shadow:0 0 0 3px var(--surface)}
+.step__dot.is-ferry{background:var(--ferry)} .step__dot.is-stay{background:var(--good)}
+.step__dot.is-flag{background:var(--ink)}
+.step__line{flex:1;width:3px;background:var(--line);margin:2px 0;border-radius:2px}
+.step__line.is-ferry{background:repeating-linear-gradient(var(--ferry) 0 6px,transparent 6px 12px)}
+.step__body{flex:1;min-width:0;padding-bottom:2px}
+.step__name{font-weight:600}
+.step__meta{color:var(--muted);font-size:.84rem;margin-top:1px}
+.step__meta b{color:var(--ink)}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;padding:1px 7px;border-radius:999px;
+  background:var(--line);color:var(--muted);margin-left:6px;vertical-align:middle}
+.tag.book{background:#fdece2;color:#b4471f}
+@media (prefers-color-scheme: dark){.tag.book{background:#3a2519;color:#f0a574}}
+
+/* ---------- Cards (ferries) ---------- */
+.cards{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:14px;border-left:5px solid var(--brand)}
+.card.kind-ferry{border-left-color:var(--ferry)}
+.card.kind-lossi{border-left-color:var(--muted)}
+.card__top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.card__name{font-weight:700;font-size:1.05rem}
+.card__leg{color:var(--muted);font-size:.86rem;margin-top:1px}
+.card__badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.badge{font-size:.72rem;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--line);color:var(--muted)}
+.badge.req{background:#fdece2;color:#b4471f}
+.badge.free{background:#e3f4ea;color:#1f7a45}
+@media (prefers-color-scheme: dark){.badge.req{background:#3a2519;color:#f0a574}.badge.free{background:#16332180;color:#7fd3a1}}
+.btn-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.btn{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:.85rem;font-weight:600;
+  padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.sched{margin-top:10px;border-top:1px solid var(--line);padding-top:8px}
+.sched summary{font-weight:600;font-size:.9rem;cursor:pointer;color:var(--brand)}
+.sched table{width:100%;border-collapse:collapse;margin-top:8px;font-size:.85rem}
+.sched td,.sched th{padding:4px 6px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.times{font-variant-numeric:tabular-nums;margin-top:2px}
+.times .t{display:inline-block;background:var(--line);border-radius:6px;padding:2px 7px;margin:3px 5px 0 0;font-variant-numeric:tabular-nums}
+.times .t.next{background:var(--brand);color:#fff}
+.note{font-size:.8rem;color:var(--muted);margin-top:6px}
+
+/* day / location pills */
+.day-pills,.loc-pills{display:flex;gap:8px;overflow-x:auto;padding:2px 0 10px;-webkit-overflow-scrolling:touch}
+.pill{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--muted);
+  border-radius:999px;padding:7px 14px;font-size:.86rem;font-weight:600}
+.pill.is-active{background:var(--brand);color:#fff;border-color:var(--brand)}
+
+/* ---------- Weather ---------- */
+.weather-now{background:linear-gradient(135deg,var(--brand),var(--brand-d));color:#fff;
+  border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-bottom:14px}
+.wn__row{display:flex;align-items:center;gap:14px}
+.wn__icon{font-size:48px;line-height:1}
+.wn__temp{font-size:2.4rem;font-weight:700;line-height:1}
+.wn__desc{font-size:.95rem;opacity:.95}
+.wn__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.wn__cell{background:rgba(255,255,255,.14);border-radius:10px;padding:8px 10px}
+.wn__cell .k{font-size:.7rem;opacity:.85;text-transform:uppercase;letter-spacing:.03em}
+.wn__cell .v{font-size:1.05rem;font-weight:700}
+.weather-days{display:flex;flex-direction:column;gap:10px}
+.wday{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.wday__h{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;font-weight:700;
+  background:var(--surface)}
+.wday__h .hi{color:var(--warn)} .wday__h .lo{color:var(--brand)}
+.wday__rain{font-size:.8rem;color:var(--muted);font-weight:600}
+.wrow{display:flex;gap:6px;overflow-x:auto;padding:8px 10px 12px;-webkit-overflow-scrolling:touch}
+.whour{flex:none;width:62px;text-align:center;background:var(--bg);border-radius:10px;padding:8px 4px}
+.whour .h{font-size:.74rem;color:var(--muted)} .whour .i{font-size:22px;margin:2px 0}
+.whour .t{font-weight:700;font-size:.92rem}
+.whour .w{font-size:.7rem;color:var(--muted);margin-top:2px}
+.whour .p{font-size:.68rem;color:var(--brand);font-weight:600;min-height:.9em}
+.wind-arrow{display:inline-block;transition:transform .2s}
+
+/* ---------- Info ---------- */
+.info-body{display:flex;flex-direction:column;gap:14px}
+.info-card{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px}
+.info-card h2{font-size:1.02rem;margin:.1rem 0 .5rem;display:flex;align-items:center;gap:8px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+.stat{background:var(--bg);border-radius:10px;padding:10px 6px}
+.stat .v{font-size:1.4rem;font-weight:800;color:var(--brand)} .stat .k{font-size:.74rem;color:var(--muted)}
+.stay{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.stay:first-of-type{border-top:none}
+.stay__n{width:30px;height:30px;flex:none;border-radius:50%;background:var(--good);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:700}
+.tips li{margin:.3em 0}
+.src{font-size:.78rem;color:var(--muted)}
+.dl-btn{width:100%;padding:12px;border-radius:12px;border:none;background:var(--brand);color:#fff;font-weight:700}
+.dl-btn:disabled{opacity:.6}
+.dl-prog{height:6px;background:var(--line);border-radius:4px;margin-top:8px;overflow:hidden;display:none}
+.dl-prog i{display:block;height:100%;width:0;background:var(--good);transition:width .2s}
+
+/* ---------- Tab bar ---------- */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:1000;height:calc(var(--tab-h) + var(--safe-b));
+  padding-bottom:var(--safe-b);background:var(--surface);border-top:1px solid var(--line);
+  display:flex;box-shadow:0 -2px 10px rgba(20,40,50,.06)}
+.tab{flex:1;border:none;background:none;color:var(--muted);display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;font-size:.7rem;font-weight:600;padding-top:6px}
+.tab__ico{font-size:20px;line-height:1}
+.tab.is-active{color:var(--brand)}
+
+/* ---------- Net banner ---------- */
+.net-banner{position:fixed;top:0;left:0;right:0;z-index:2000;text-align:center;
+  padding:calc(var(--safe-t) + 6px) 10px 6px;font-size:.82rem;font-weight:600;color:#fff;background:var(--muted)}
+.net-banner.off{background:var(--warn)} .net-banner.on{background:var(--good)}
+
+/* Leaflet marker labels */
+.mk{display:flex;align-items:center;justify-content:center;border-radius:50%;color:#fff;font-size:14px;
+  box-shadow:0 1px 4px rgba(0,0,0,.4);border:2px solid #fff}
+.mk-ferry{background:var(--ferry)} .mk-stay{background:var(--good)}
+.mk-start{background:var(--ink)} .mk-lossi{background:var(--muted);width:20px!important;height:20px!important;font-size:11px}
+.dist-label{background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:999px;
+  padding:1px 8px;font-size:.74rem;font-weight:700;box-shadow:var(--shadow);white-space:nowrap}
+.leaflet-popup-content{font:inherit;margin:12px 14px;min-width:170px}
+.leaflet-popup-content h3{margin:0 0 4px;font-size:1rem}
+.leaflet-popup-content .pp-row{font-size:.85rem;margin:3px 0;color:var(--muted)}
+.leaflet-popup-content .pp-row b{color:var(--ink)}
+.leaflet-popup-content .btn-row{margin-top:8px}

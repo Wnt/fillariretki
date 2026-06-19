@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5" />
+  <meta name="theme-color" content="#0b6e8f" />
+  <meta name="description" content="Tour de Skiftet -fillarireitti: etäisyydet, lauttojen aikataulut, sääennuste ja sadetutka. Toimii offline-tilassa." />
+  <title>Tour de Skiftet · Fillarireitti</title>
+
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png" />
+
+  <link rel="stylesheet" href="assets/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Offline / status banner -->
+  <div id="net-banner" class="net-banner" hidden></div>
+
+  <!-- ========================= MAP VIEW ========================= -->
+  <section id="view-map" class="view view--map is-active" aria-label="Kartta">
+    <div id="map" class="map"></div>
+
+    <div class="map-toolbar">
+      <button id="btn-locate" class="map-btn" title="Paikanna minut" aria-label="Paikanna minut">◎</button>
+      <button id="btn-fit" class="map-btn" title="Näytä koko reitti" aria-label="Näytä koko reitti">⤢</button>
+      <button id="btn-radar" class="map-btn" title="Sadetutka päälle/pois" aria-label="Sadetutka">🌧️</button>
+    </div>
+
+    <!-- Radar animation controls (hidden until radar on) -->
+    <div id="radar-controls" class="radar-controls" hidden>
+      <button id="radar-play" class="radar-play" aria-label="Toista/pysäytä">⏸</button>
+      <input id="radar-slider" class="radar-slider" type="range" min="0" max="0" value="0" aria-label="Tutka-aika" />
+      <span id="radar-time" class="radar-time">–</span>
+    </div>
+
+    <!-- Bottom sheet: distance summary -->
+    <div id="route-sheet" class="route-sheet">
+      <button class="route-sheet__handle" id="sheet-handle" aria-expanded="false">
+        <span class="route-sheet__title">Reitti vastapäivään · <span id="sheet-total">–</span></span>
+        <span class="route-sheet__chev">▴</span>
+      </button>
+      <div class="route-sheet__body" id="sheet-body"><!-- itinerary injected --></div>
+    </div>
+  </section>
+
+  <!-- ========================= FERRIES VIEW ========================= -->
+  <section id="view-ferries" class="view view--scroll" aria-label="Lautat" hidden>
+    <header class="vh"><h1>Lautat &amp; aikataulut</h1>
+      <p class="vh__sub">Varaa <strong>Ådan</strong> ja <strong>Finnö</strong> etukäteen – ne ovat reitin pullonkaulat.</p>
+    </header>
+    <div class="day-pills" id="ferry-day-pills" role="tablist" aria-label="Viikonpäivä"></div>
+    <div id="ferries-list" class="cards"><!-- ferry cards injected --></div>
+  </section>
+
+  <!-- ========================= WEATHER VIEW ========================= -->
+  <section id="view-weather" class="view view--scroll" aria-label="Sää" hidden>
+    <header class="vh"><h1>Sääennuste</h1>
+      <p class="vh__sub">Lähde: Ilmatieteen laitos (avoin data)</p>
+    </header>
+    <div class="loc-pills" id="weather-loc-pills" role="tablist" aria-label="Paikka"></div>
+    <div id="weather-now" class="weather-now"><!-- current --></div>
+    <div id="weather-days" class="weather-days"><!-- daily forecast --></div>
+    <p id="weather-status" class="muted small"></p>
+  </section>
+
+  <!-- ========================= INFO VIEW ========================= -->
+  <section id="view-info" class="view view--scroll" aria-label="Info" hidden>
+    <header class="vh"><h1>Reissun tiedot</h1></header>
+    <div id="info-body" class="info-body"><!-- info injected --></div>
+  </section>
+
+  <!-- ========================= BOTTOM NAV ========================= -->
+  <nav class="tabbar" role="tablist" aria-label="Näkymät">
+    <button class="tab is-active" data-view="map" role="tab"><span class="tab__ico">🗺️</span><span>Kartta</span></button>
+    <button class="tab" data-view="ferries" role="tab"><span class="tab__ico">⛴️</span><span>Lautat</span></button>
+    <button class="tab" data-view="weather" role="tab"><span class="tab__ico">🌤️</span><span>Sää</span></button>
+    <button class="tab" data-view="info" role="tab"><span class="tab__ico">ℹ️</span><span>Info</span></button>
+  </nav>
+
+  <script src="assets/leaflet/leaflet.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/weather.js"></script>
+  <script src="js/radar.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

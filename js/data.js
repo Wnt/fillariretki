@@ -71,6 +71,11 @@ function totalCycleKm(){
 }
 /* minutes to ride km at given speed */
 function rideMinutes(km, kmh){ return Math.round((km/(kmh||TRIP.speedKmh))*60); }
+/* ride time incl. at least one break per full riding hour */
+function rideMinutesWithBreaks(km, kmh){
+  const r = rideMinutes(km, kmh);
+  return r + Math.floor(r/60) * (TRIP.breakMin||15);
+}
 function fmtKm(km){ return km==null ? "?" : km.toFixed(km<10?1:0).replace(".",",")+" km"; }
 function fmtDur(min){
   if(min==null) return "";

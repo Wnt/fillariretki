@@ -225,8 +225,9 @@ const App = (() => {
       const stay=STAYS.find(s=>s.id===day.endStayId);
       return `<div style="padding:10px 0;border-top:1px solid var(--line)">
         <div style="font-weight:700">Päivä ${day.n} · ${wdName} ${d.getDate()}.${d.getMonth()+1}.</div>
-        <div class="muted small" style="margin:1px 0 6px">${day.title} · 🚲 ${fmtKm(km)} · ${fmtDur(rideMinutes(km))}</div>
+        <div class="muted small" style="margin:1px 0 6px">${day.title} · 🚲 ${fmtKm(km)} · ${fmtDur(rideMinutesWithBreaks(km))} ajossa <span title="sis. 15 min tauon / ajotunti">(sis. tauot)</span></div>
         ${ferriesHTML}
+        ${day.recommend?`<div class="note" style="margin-top:6px">💡 ${day.recommend}</div>`:""}
         ${stay?`<div class="pp-row" style="margin-top:4px">🛏 Yöpyminen: <b>${stay.name}</b></div>`:""}
       </div>`;
     }).join("");
@@ -234,8 +235,11 @@ const App = (() => {
     const warn = conflicts.length ? `
       <div style="background:#fdece2;color:#8f3415;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:.9rem">
         <b>⚠️ Aikatauluristiriita!</b> ${conflicts.map(c=>`${c.f?c.f.name:c.fr.id} ei liikennöi ${WEEKDAYS_LONG[parseDate(c.day.date).getDay()].toLowerCase()}na (päivä ${c.day.n}).`).join(" ")}
-        Harkitse kierron kääntämistä <b>myötäpäivään</b> (Iniö ensin, Brändö paluulla) – silloin Houtskari→Brändö-yhteys osuu keskiviikolle, jolloin alus liikennöi.
-      </div>` : "";
+        Siirrä kyseistä ajopäivää (Brändö–Houtskari-yhteys kulkee ma/ke/to/pe/su) tai käännä kierron suunta.
+      </div>` : `
+      <div style="background:#e3f4ea;color:#1f7a45;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:.9rem">
+        <b>✅ Kaikki lautat liikennöivät suunnitelman päivinä.</b> Brändön päivä osuu parhaalle pyöräsäälle (ma 22.6. kuiva); ke 24.6. on sateinen, joten se on jätetty pois.
+      </div>`;
 
     return `<div class="info-card">
       <h2>🗓️ Reissusuunnitelma</h2>

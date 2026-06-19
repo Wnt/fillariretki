@@ -128,23 +128,24 @@ const TILES = {
 const PLAN = {
   direction: "counterclockwise",
   nights: [
-    { from:"2026-06-21", to:"2026-06-22", stayId:"peterzens" }, // yö 1 (su–ma)
-    { from:"2026-06-22", to:"2026-06-23", stayId:"sybarit" }    // yö 2 (ma–ti)
+    { from:"2026-06-24", to:"2026-06-25", stayId:"peterzens" }, // yö 1 (ke–to): ajopäivä Turusta
+    { from:"2026-06-25", to:"2026-06-26", stayId:"sybarit" }    // yö 2 (to–pe)
   ],
+  // Ke 24.6. ajetaan Turusta Kustaviin (sateinen päivä – ei pyöräilyä), yö Peterzénsillä.
   days: [
-    { n:1, date:"2026-06-22", title:"Kustavi → Brändö → Houtskari", endStayId:"sybarit",
+    { n:1, date:"2026-06-25", title:"Kustavi → Brändö → Houtskari", endStayId:"sybarit",
       // Houtskari-osuus jaetaan Näsbyssä (yöpyminen Sybaritissa)
       cycles:[ ["kustavi_center","vuosnainen"], ["ava","torsholma"],
                {seg:["roslax","mossala"], from:"roslax", to:"nasby"} ],
       ferries:[ {id:"adan",  dir:"→Åva"},
                 {id:"finno", dir:"Torsholma→Roslax"} ],
-      recommend:"Peterzéns ~09:00 → Ådan Vuosnainen 10:05 → Åva 10:55 → pyörä Åva–Torsholma 22 km (~1 h 45, sis. tauon, ehdit hyvin) → Torsholma → Finnö 15:15 → Roslax 17:40 → Sybarit ~18:00. (Brändön päivä — paras sää ma 22.6.)" },
-    { n:2, date:"2026-06-23", title:"Houtskari → Iniö → Kustavi (Peterzéns)", endStayId:"peterzens",
+      recommend:"Peterzéns ~09:15 → Ådan Vuosnainen 10:35 → Åva 11:20 → pyörä Åva–Torsholma 22 km (~1 h 45, sis. tauon; ehdit hyvin) → Torsholma → Finnö 15:15 → Roslax 17:10 → Sybarit ~17:30. (Brändön päivä — kuiva to 25.6.)" },
+    { n:2, date:"2026-06-26", title:"Houtskari → Iniö → Kustavi (Peterzéns)", endStayId:"peterzens",
       cycles:[ {seg:["roslax","mossala"], from:"nasby", to:"mossala"},
                ["dalen","kannvik"], ["heponiemi","kustavi_center"] ],
       ferries:[ {id:"replot", dir:"Mossala→Dalen"},
                 {id:"sterna", dir:"Kannvik→Heponiemi"} ],
-      recommend:"Sybarit ~10:45 → pyörä Mossalaan (~8 km) → Replot 12:15 → Dalen 13:15 → pyörä Iniön halki (~9 km) → Sterna Kannvik 14:45 → Heponiemi → pyörä Kustaviin (~12 km) → Peterzéns ~16:15." }
+      recommend:"Sybarit ~10:30 → pyörä Mossalaan (~8 km) → Replot 12:15 → Dalen 13:15 → pyörä Iniön halki (~9 km) → Sterna Kannvik 14:45 → Heponiemi → Peterzéns (auto odottaa) → kotiin. (Pe tuulista mutta kuivaa.)" }
   ]
 };
 

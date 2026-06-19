@@ -238,7 +238,7 @@ const App = (() => {
         Siirrä kyseistä ajopäivää (Brändö–Houtskari-yhteys kulkee ma/ke/to/pe/su) tai käännä kierron suunta.
       </div>` : `
       <div style="background:#e3f4ea;color:#1f7a45;border-radius:10px;padding:10px 12px;margin-bottom:8px;font-size:.9rem">
-        <b>✅ Kaikki lautat liikennöivät suunnitelman päivinä.</b> Brändön päivä osuu parhaalle pyöräsäälle (ma 22.6. kuiva); ke 24.6. on sateinen, joten se on jätetty pois.
+        <b>✅ Kaikki lautat liikennöivät suunnitelman päivinä.</b> Aja Turusta <b>ke 24.6.</b> (sateinen – pelkkää ajoa, yö Peterzénsillä). Brändön päivä <b>to 25.6.</b> on kuiva; sateinen keskiviikko jää pyöräilyn ulkopuolelle.
       </div>`;
 
     return `<div class="info-card">
